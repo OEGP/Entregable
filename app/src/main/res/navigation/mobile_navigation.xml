@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_splash">
+
+    <fragment
+        android:id="@+id/navigation_splash"
+        android:name="es.oaemdl.apkcavoshcafe202610.ui.Splash"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_navigation_splash_to_navigation_login"
+            app:destination="@id/navigation_login" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_login"
+        android:name="es.oaemdl.apkcavoshcafe202610.ui.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_navigation_login_to_navigation_registrar"
+            app:destination="@id/navigation_registrar" />
+        <action
+            android:id="@+id/action_navigation_login_to_navigation_inicio"
+            app:destination="@id/navigation_inicio" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_registrar"
+        android:name="es.oaemdl.apkcavoshcafe202610.ui.Registrar"
+        android:label="fragment_registrar"
+        tools:layout="@layout/fragment_registrar" >
+        <action
+            android:id="@+id/action_navigation_registrar_to_navigation_verificar"
+            app:destination="@id/navigation_verificar" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_inicio"
+        android:name="es.oaemdl.apkcavoshcafe202610.ui.Inicio"
+        android:label="fragment_inicio"
+        tools:layout="@layout/fragment_inicio" >
+        <action
+            android:id="@+id/action_navigation_inicio_to_navigation_menu"
+            app:destination="@id/navigation_menu" />
+        <action
+            android:id="@+id/action_navigation_inicio_to_navigation_favoritos"
+            app:destination="@id/navigation_favoritos" />
+        <action
+            android:id="@+id/action_navigation_inicio_to_navigation_perfil"
+            app:destination="@id/navigation_perfil" />
+        <action
+            android:id="@+id/action_navigation_inicio_to_navigation_carrito"
+            app:destination="@id/navigation_carrito" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_menu"
+        android:name="es.oaemdl.apkcavoshcafe202610.ui.Menu"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
+    <fragment
+        android:id="@+id/navigation_favoritos"
+        android:name="es.oaemdl.apkcavoshcafe202610.ui.Favoritos"
+        android:label="fragment_favoritos"
+        tools:layout="@layout/fragment_favoritos" />
+    <fragment
+        android:id="@+id/navigation_perfil"
+        android:name="es.oaemdl.apkcavoshcafe202610.ui.Perfil"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" />
+    <fragment
+        android:id="@+id/navigation_carrito"
+        android:name="es.oaemdl.apkcavoshcafe202610.ui.Carrito"
+        android:label="fragment_carrito"
+        tools:layout="@layout/fragment_carrito" />
+    <fragment
+        android:id="@+id/navigation_verificar"
+        android:name="es.oaemdl.apkcavoshcafe202610.ui.Verificar"
+        android:label="fragment_verificar"
+        tools:layout="@layout/fragment_verificar" />
+</navigation>

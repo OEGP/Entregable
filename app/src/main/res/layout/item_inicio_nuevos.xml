@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/ivCafe_InicioNuevo"
+            android:layout_width="128dp"
+            android:layout_height="108dp"
+            android:layout_margin="8dp"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="8dp"
+            android:background="@drawable/sh_bg_item_bright_gray"
+            android:contentDescription="@string/content_description"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/ivFavorito_InicioNuevo"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="8dp"
+            android:padding="4dp"
+            android:background="@drawable/sh_bg_circle_carmine_pink"
+            android:contentDescription="@string/content_description"
+            android:src="@drawable/ic_favorito"
+            app:layout_constraintBottom_toBottomOf="@id/ivCafe_InicioNuevo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tvCafe_InicioNuevo"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textColor="@color/gunmetal"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/ivCafe_InicioNuevo"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="8dp"
+            android:text="S/"
+            android:textColor="@color/carmine_pink"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tvCafe_InicioNuevo"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvPrecio_InicioNuevo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="24dp"
+            android:textColor="@color/gunmetal"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tvCafe_InicioNuevo"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivAgregar_InicioNuevo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/sh_bg_plus_carmine_pink"
+            android:contentDescription="@string/content_description"
+            android:src="@drawable/ic_add"
+            app:layout_constraintTop_toBottomOf="@id/tvCafe_InicioNuevo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/white" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

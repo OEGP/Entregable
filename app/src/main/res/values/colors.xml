@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="police_blue">#34536A</color>
+    <color name="steel_teal">#5A7E99</color>
+    <color name="carmine_pink">#E65738</color>
+    <color name="flesh">#FEE4D6</color>
+    <color name="gunmetal">#293441</color>
+
+    <color name="bright_gray">#D1CFCF</color>
+    <color name="dust_storm">#E5D0C5</color>
+    <color name="light_silver">#CFD8DC</color>
+</resources>

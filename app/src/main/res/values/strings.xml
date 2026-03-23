@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">apkCavoshCafe202610</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="iniciar">Iniciar</string>
+    <string name="registrar">Registrar</string>
+    <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="correo">Correo</string>
+    <string name="vamos_login">Vamos, inicia sesión</string>
+    <string name="passwordd">Contraseña</string>
+    <string name="olvidastes_passwordd">¿ Olvidastes contraseña ?</string>
+    <string name="content_description">contentDescription</string>
+    <string name="registrate">Registrate</string>
+    <string name="no_tienes_una_cuenta">¿No tienes una cuenta?</string>
+    <string name="inicia_sesion_con">Inicia sesión con</string>
+    <string name="vamos_ven_a_registrarte">Vamos,ven a registrarte</string>
+    <string name="nombres">Nombres</string>
+    <string name="repetir_passwordd">Repetir contraseña</string>
+    <string name="resgistrate_con">Resgistrate con</string>
+    <string name="tienes_una_cuenta">Tienes una cuenta</string>
+    <string name="codigo">Código</string>
+    <string name="validar_codigo_enviado">Validar código enviado</string>
+    <string name="cambiar">Cambiar</string>
+    <string name="inicio">Inicio</string>
+    <string name="menu">Menú</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="perfil">Perfil</string>
+    <string name="carrito">Carrito</string>
+
+</resources>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "38541444596",
+    "project_id": "appandroid-45955",
+    "storage_bucket": "appandroid-45955.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38541444596:android:60cb342d8d9d245b2f65a1",
+        "android_client_info": {
+          "package_name": "es.oaemdl.apkcavoshcafe202610"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeSCV3zqzM109IYmxRRWm6mcwXfpKzpO0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
