@@ -37,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
                     //id == R.id.navigation_validar ||
                     //id == R.id.navigation_menuProducto || id == R.id.navigation_menuProductoPersonalizar )
                 navView.setVisibility( View.INVISIBLE );
+            else {
+
+                navView.setVisibility(View.VISIBLE);
+            }
         });
     }
 }

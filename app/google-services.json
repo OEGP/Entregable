@@ -12,7 +12,20 @@
           "package_name": "es.oaemdl.apkcavoshcafe202610"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "38541444596-ehop2ci0ommj0p92f34ke54msbu8tvnn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "es.oaemdl.apkcavoshcafe202610",
+            "certificate_hash": "9fc489698922a3711968733722a435e5bf46621a"
+          }
+        },
+        {
+          "client_id": "38541444596-4lnojv8fsjm3sch1kk2ssangthe8d6sb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCeSCV3zqzM109IYmxRRWm6mcwXfpKzpO0"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38541444596-4lnojv8fsjm3sch1kk2ssangthe8d6sb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

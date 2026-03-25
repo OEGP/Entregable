@@ -27,5 +27,8 @@
     <string name="favoritos">Favoritos</string>
     <string name="perfil">Perfil</string>
     <string name="carrito">Carrito</string>
+    <string name="facebook_app_id">TU_APP_ID</string>
+    <string name="fb_login_protocol_scheme">fbTU_APP_ID</string>
+
 
 </resources>
