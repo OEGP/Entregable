@@ -67,7 +67,11 @@
         android:id="@+id/navigation_perfil"
         android:name="es.oaemdl.apkcavoshcafe202610.ui.Perfil"
         android:label="fragment_perfil"
-        tools:layout="@layout/fragment_perfil" />
+        tools:layout="@layout/fragment_perfil" >
+        <action
+            android:id="@+id/action_navigation_perfil_to_navigation_login2"
+            app:destination="@id/navigation_login" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_carrito"
         android:name="es.oaemdl.apkcavoshcafe202610.ui.Carrito"

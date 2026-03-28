@@ -1,6 +1,5 @@
 package es.oaemdl.apkcavoshcafe202610.ui;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -13,108 +12,108 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.*;
+import com.google.android.gms.auth.api.signin.*;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 
 import es.oaemdl.apkcavoshcafe202610.R;
 import es.oaemdl.apkcavoshcafe202610.databinding.FragmentLoginBinding;
 
-import com.google.android.gms.auth.api.signin.*;
-import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.*;
-
-
 public class Login extends Fragment {
+
     FragmentLoginBinding binding;
-    View view;
-    Context context;
     NavController navController;
 
     GoogleSignInClient googleSignInClient;
     FirebaseAuth mAuth;
+    FirebaseAuth.AuthStateListener authListener;
 
     int RC_SIGN_IN = 100;
 
-
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.fragment_login, container, false);
-
+        navController = Navigation.findNavController(view);
 
         mAuth = FirebaseAuth.getInstance();
+
+        authListener = firebaseAuth -> {
+            FirebaseUser user = firebaseAuth.getCurrentUser();
+
+            if (user != null) {
+                navController.popBackStack();
+                navController.navigate(R.id.navigation_inicio);
+            }
+        };
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
-        googleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
+        googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso);
 
-        TextInputLayout tilCorreo = view.findViewById(R.id.tilCorreo);
-        TextInputLayout tilPassword = view.findViewById(R.id.tilPasswordd);
 
-        EditText email = tilCorreo.getEditText();
-        EditText password = tilPassword.getEditText();
+        binding.btnIniciar.setOnClickListener(v -> {
 
-        Button btnLogin = view.findViewById(R.id.btnIniciar);
-        Button btnRegistrar = view.findViewById(R.id.tvRegistrar01);
-
-        btnLogin.setOnClickListener(v -> {
-
-            String correo = email.getText().toString();
-            String contra = password.getText().toString();
+            String correo = binding.tilCorreo.getEditText().getText().toString();
+            String contra = binding.tilPasswordd.getEditText().getText().toString();
 
             mAuth.signInWithEmailAndPassword(correo, contra)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-
-                            NavController navController = Navigation.findNavController(v);
-                            navController.navigate(R.id.navigation_inicio);
-
-                        } else {
-                            Toast.makeText(getContext(),
+                            Toast.makeText(getContext(), "Login correcto", Toast.LENGTH_SHORT).show();
+                        }else {
+                            if (isAdded()) {
+                            Toast.makeText(requireContext(),
                                     "Error: " + task.getException().getMessage(),
                                     Toast.LENGTH_LONG).show();
+                         }
                         }
                     });
-
         });
 
-        btnRegistrar.setOnClickListener(v -> {
-
-            NavController navController = Navigation.findNavController(v);
+        binding.tvRegistrar01.setOnClickListener(v -> {
             navController.navigate(R.id.navigation_registrar);
-
         });
 
-        ImageButton btnGoogle = view.findViewById(R.id.ivGooglePlus);
-
-        btnGoogle.setOnClickListener(v -> {
+        binding.ivGooglePlus.setOnClickListener(v -> {
             Intent signInIntent = googleSignInClient.getSignInIntent();
             startActivityForResult(signInIntent, RC_SIGN_IN);
         });
-
-
-        return view;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(authListener);
+    }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (authListener != null) {
+            mAuth.removeAuthStateListener(authListener);
+        }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        binding = FragmentLoginBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -132,26 +131,24 @@ public class Login extends Fragment {
             }
         }
     }
-
     private void firebaseAuthWithGoogle(String idToken) {
+
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
 
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(getActivity(), task -> {
+                .addOnCompleteListener(requireActivity(), task -> {
                     if (task.isSuccessful()) {
-
-                        Toast.makeText(getContext(), "Login con Google OK", Toast.LENGTH_SHORT).show();
-
-                        NavController navController = Navigation.findNavController(requireView());
-                        navController.navigate(R.id.navigation_inicio);
-
+                        if (isAdded()) {
+                            Toast.makeText(requireContext(), "Login con Google OK", Toast.LENGTH_SHORT).show();
+                        }
                     } else {
-                        Toast.makeText(getContext(),
-                                "Error: " + task.getException().getMessage(),
-                                Toast.LENGTH_LONG).show();
+                        if (isAdded()) {
+                            Toast.makeText(requireContext(),
+                                    "Error: " + task.getException().getMessage(),
+                                    Toast.LENGTH_LONG).show();
+                        }
                     }
                 });
     }
-
 
 }
